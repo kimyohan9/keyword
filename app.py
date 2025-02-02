@@ -1,9 +1,9 @@
 import openai
 import streamlit as st
+import os
 
-# ✅ OpenAI API 키 설정 (환경 변수 제거)
-openai.api_key = "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"  # 여기에 직접 API 키 입력
-
+# Streamlit Cloud에서 환경 변수 가져오기
+openai.api_key = os.getenv("OPENAI_API_KEY")
 # ✅ Streamlit UI 구성
 st.title('🔍 판매하려는 제품 키워드 추천')
 st.subheader("💡 ChatGPT 기반으로 검색된 키워드입니다.")
