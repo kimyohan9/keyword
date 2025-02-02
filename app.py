@@ -16,19 +16,13 @@ st.write('📌 **판매하려는 제품의 특징을 입력해주세요!**')
 title = st.text_input("🔎이곳에 입력해주세요")
 
 if st.button('검색하기'):
-    chat_completion = openai.ChatCompletion.create(
-            messages=[
-                {
-                    "role": "user",
-                    "content": title
-                },
-                {
-                    "role": "system",
-                    "content": "너는 온라인판매를 하려는 사업자인데 입력받은 문구를 판매하려할때 어떤 키워드를 써야 판매가 잘될지 최소 20개이상 추천해줘",
-                }
-            ],
-            model="gpt-4o",
+       chat_completion = openai.ChatCompletion.create(
+        model="gpt-4o",
+        messages=[
+            {"role": "system", "content": "너는 온라인 판매 사업자야. 입력받은 문구를 판매할 때 어떤 키워드를 써야 판매가 잘될지 최소 20개 이상 추천해줘."},
+            {"role": "user", "content": title},  
+        ]
     )
 
-    result = chat_completion.choices[0].message.content
+    result = chat_completion.choices[0].message.content  
     st.write(result)
