@@ -3,7 +3,7 @@ import streamlit as st
 import os
 
 # Streamlit Cloud에서 환경 변수 가져오기
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv("API_KEY")
 # ✅ Streamlit UI 구성
 st.title('🔍 판매하려는 제품 키워드 추천')
 st.subheader("💡 ChatGPT 기반으로 검색된 키워드입니다.")
