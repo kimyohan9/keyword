@@ -16,8 +16,7 @@ title = st.text_input("🔎 이곳에 입력해주세요")
 # ✅ 버튼 클릭 시 API 호출
 if st.button('검색하기'):
     if title.strip():  # 빈 입력값 방지
-        with st.spinner("🔄 검색 중입니다. 잠시만 기다려주세요..."):
-        chat_completion = openai.chat.completions.create(
+       chat_completion = openai.chat.completions.create(
             model="gpt-4o",
             messages=[
                 {"role": "system", "content": "너는 온라인 판매 사업자야. 입력받은 문구를 판매할 때 어떤 키워드를 써야 판매가 잘될지 최소 20개 이상 추천해줘."},
