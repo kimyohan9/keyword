@@ -16,7 +16,7 @@ st.write('📌 **판매하려는 제품의 특징을 입력해주세요!**')
 title = st.text_input("🔎이곳에 입력해주세요")
 
 if st.button('검색하기'):
-    chat_completion = client.chat.completions.create(
+    chat_completion = openai.ChatCompletion.create(
             messages=[
                 {
                     "role": "user",
