@@ -2,7 +2,7 @@ import openai
 import os
 os.environ["OPENAI_API_KEY"] = "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"
 
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+client = openai.api_key=os.environ.get("OPENAI_API_KEY")
 
 import streamlit as st
 
