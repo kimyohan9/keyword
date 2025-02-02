@@ -24,5 +24,5 @@ if st.button('검색하기'):
         ]
     )
 
-    result = chat_completion.choices[0].message.content  
+    result = chat_completion.choices[0].message.content
     st.write(result)
