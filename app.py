@@ -16,6 +16,10 @@ title = st.text_input("🔎 이곳에 입력해주세요")
 # ✅ 버튼 클릭 시 API 호출
 if st.button('검색하기'):
     if title.strip():  # 빈 입력값 방지
+        st.write("🔄 검색 중입니다. 잠시만 기다려주세요...")
+        progress = st.progress(0)
+        for percent in range(100):
+            progress.progress(percent + 1)
         chat_completion = openai.chat.completions.create(
             model="gpt-4o",
             messages=[
@@ -26,6 +30,7 @@ if st.button('검색하기'):
 
         # ✅ 결과 출력
         result = chat_completion.choices[0].message.content
+        st.success("✅ 검색이 완료되었습니다!")
         st.write("### 🔑 추천 키워드")
         st.write(result)
     else:
